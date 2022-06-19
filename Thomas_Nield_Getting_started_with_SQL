@@ -1,4 +1,4 @@
-preface:
+                                                             preface:
 Proficiency comes through repeated use and practice. In your job, it is likely that you 
 will use some SQL functionalities heavily and others not as much. That is OK. It is 
 more important to become proficient in what your job requires, and consult this 
@@ -6,10 +6,10 @@ book (or Google) as a reference when you need answers about an unfamiliar topic.
 
 mailto:tmnield@outlook.com   we can contact the author on this email id for any doubt or career information 
 
-chapter 1  Why learn SQL?
+                                                          chapter 1  Why learn SQL?
 this skill is for everybody from IT professional to research scholar.
 
-chapter 2 Database
+                                                             chapter 2 Database
 A database is anything that collects and organizes data.
 proffessionally database refers to RDBMS.
 
@@ -34,11 +34,11 @@ Although we will use SQLite in this book, keep in mind it uses SQL, so the knowl
 you gain is applicable to all database platforms.
 
 
-chapter 3   SQLite
+                                                              chapter 3   SQLite
 download and install the setup 
 
 
-chapter 4  SELECT
+                                                              chapter 4  SELECT
 
 To select all details from some given table we write
 SELECT *
@@ -105,10 +105,71 @@ FROM CUSTOMER;
 NOTE:  Many database platforms use double pipes (||) to concatenate, but 
 MySQL and some others require using a CONCAT() function.
 
+                                           Chapter 5
+  NOTE:Table names and columns can be defined in uppercase or lowercase. SQL commands such as SELECT, FROM, and WHERE can be uppercase or lowercase as well.                                         
+ SELECT * FROM station_data 
+ WHERE year = 2010;
+ 
+ Conversely, you can use != or <> to get everything but 2010. For example:
+ SELECT * FROM station_data 
+WHERE year != 2010
+Or:
+SELECT * FROM station_data 
+WHERE year <> 2010
+
+We can also qualify inclusive ranges using a BETWEEN statement, as shown here 
+(“inclusive” means that 2005 and 2010 are included in the range):
+SELECT * FROM station_data 
+WHERE year BETWEEN 2005 and 2010
+
+the year must be greater 
+than or equal to 2005 and less than or equal to 2010:
+SELECT * FROM station_data
+WHERE year >= 2005 AND year <= 2010
 
 
+SELECT * FROM station_data 
+WHERE MONTH = 3
+OR MONTH = 6 
+OR MONTH = 9 
+OR MONTH = 12
+
+elternatively we can use IN
+SELECT * FROM station_data 
+WHERE MONTH IN (3,6,9,12)
+
+If we wanted everything except 3, 6, 9, and 12, we could use NOT IN:
+SELECT * FROM station_data 
+WHERE MONTH NOT IN (3,6,9,12)
 
 
+NOTE: Oracle does not support the modulus operator. It instead uses the MOD() function.
+
+if you wanted to filter for a specific report_code, you could run this query
+SELECT * FROM station_data 
+WHERE report_code = '513A63'
+
+This single-quote rule applies to all text operations, including this IN operation:
+SELECT * FROM station_data
+WHERE report_code IN ('513A63','1F8A7B','EF616A')
+
+using length function
+SELECT * FROM station_data 
+WHERE length(report_code) != 6 ;
+
+
+if you wanted to find all report codes that start with the letter “A,” we would run this statement to find “A” followed by any characters:
+SELECT * FROM station_data 
+WHERE report_code LIKE 'A%';
+
+If you wanted to find all report codes that have a “B” as the first character and a “C” as the third character, you would specify an underscore (_) for the second position, 
+and follow with any number of characters after the “C”:
+SELECT * FROM station_data 
+WHERE report_code LIKE 'B_C%';
+
+This boolean true and false takes different values in different SQL servers some takaes 1 and 0
+SELECT * FROM station_data
+WHERE tornado = true AND hail = true;
 
 
 
