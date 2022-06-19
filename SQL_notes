@@ -136,4 +136,26 @@ it can also be used without columns
 select instr('Vikrant', 'a');   output: 5
 it is better to use some alias 
 if some string is not present the  the outout is 0
+        
+                                          part 23  substr()  string function
+ purpose: to find the portion of of text from the data of the specified column
+ SELECT SUBSTR(column_name, starting_position , number of digits we want after starting position)    string strts with index 1
+  SELECT SUBSTR('Arun Motoori', 2,3)    output :   run
+  we can also use negative index
+   SELECT SUBSTR('Arun Motoori', -3,2)    output :   or
+   
+   we can also aply this to column_namae 
+   SELECT SUBSTR(column_name, starting_index,number_of_strings_required ) 
+   
+   
+   
+   
+   
+   
+   
+   
+  
+ 
+ 
+ 
 
