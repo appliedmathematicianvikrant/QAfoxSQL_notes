@@ -206,7 +206,19 @@ SELECT Price AS original_Price, Price + 10 AS modified_price from Products;
                                             
                                   Part 37           
                                             
+  Table is one of the objects in a databses
+  it has tables , views, functions, procedure
   
+  syntax to see all tables in a database
+  show tables;  will show all the tables in  aprticul;ar database once thta database is choose
+  
+  syntax to craete a table
+  CREATE TABLE table_name(id int, name varchar(15),experience int);
+  
+ DESCRIBE table_name;  this syntax gives all details of this table  name of fields, its datatype and all such details 
+ are obtained by this clause
+ 
+ 
  
  
  
