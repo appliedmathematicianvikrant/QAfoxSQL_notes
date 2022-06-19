@@ -120,7 +120,14 @@
 # select LOWER(column_name) AS countryfrom table_name;  will give all column data in lower case.
 # if we do not use alias then the column will be shown as LOWER(column_name)  whiuch does not looks good
 #
-#
-#
+                                  part 21  length() string function
+purpose: find the length/size of the data under the specified column name
+we can also apply this function on some string
+select length('Arun motori');     remember that a space is alos counted as one
+select length(column_name) as our_choose_name from table_name;
+
+we can also use this function with WHERE clause  exampel WHERE length(column_name) = 6
+
+
 
 
