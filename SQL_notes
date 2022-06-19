@@ -13,7 +13,7 @@
 # 4.relational model  it uses tables 
 
  
-#Part 3
+                                              Part 3
 
 #SELECT Command in SQL
 #It is used o retrieve the data from the table.
@@ -24,7 +24,7 @@
  # SELECT column1, column2
 # from table_name;
 
-# Part 4
+                                             Part 4
 
 #To retrive unique values from particular column
 # SELECT DISTINCT  column_name
@@ -34,12 +34,12 @@
 # if there are same value in fitst column but corresponding theynhave different va;ues
 # in second column then these same values will be displayed
 
-#part 5
+                                               part 5
 
 # sql is not case sensitive langauge
 # All clauses can be written in upper or lower or in mixed alphabets.
 
-# part 6
+                                               part 6
 # importance of semicolon " ; "
 # select * from customers;  we eend the satement with semicolon 
 # is it mandatory . Only in some RDBMS software it is mandatory
@@ -49,7 +49,7 @@
 #  we want to excutes more than one statment so the semicolon indicates that now we have end of
 # a query.It seperators multiple sql statements.
 
-# part 7     WHERE clause
+                                               part 7     WHERE clause
 # used in select statement
 # we will be able to filter some data based on some condition
 # Example:
@@ -58,7 +58,7 @@
 #  Numbers are not surrounded by single quotes.
 # Here we have used the '=' operators but we can use other operators also.
 
-#part 8  Relational operators in WHERE clause
+                                                 part 8  Relational operators in WHERE clause
  
 #  We ecan use the following relational opeartors
 #  =  equal opeator
@@ -69,7 +69,7 @@
 # <>  or !=  not equal to
 # Example : select * from orders where price <= 40;
 
-# part 9   logical operators
+                                                  part 9   logical operators
 # used with WHERE clause conditions
 #                      Withot logical opeators                  with logical operators   AND, OR, NOT
 #         filter the data Only one condition is taken                 more than one condition can be taken to flter the data 
@@ -79,7 +79,7 @@
 
 # part 10
 
-# part 17 breaking lengthy sql queries  into multiple lines
+                                                part 17 breaking lengthy sql queries  into multiple lines
 
 # When SQL stataemnty is loengthy then reading such statements will become hard 
 # select customerID, customerName, country, city  from customers  where country='France' limit 3;
@@ -90,7 +90,7 @@
 # where country='France'
 # limit 3;
 
-# part 18  Built in functions and there categories
+                                                part 18  Built in functions and there categories
 
 # Different RDBMS softwares 
 # MySQL, Oracle,  different RDBMS softwares has there own list of built in functions
@@ -102,7 +102,7 @@
 # 3. Aggregate fujnction
 # 4.numeric function
 
-# part 19   UPPER()  string function
+                                                  part 19   UPPER()  string function
 
 #Purpose: To convert the text under the table column to upper case
 # select 'Arun Motori'    its output is Arun Motori
@@ -111,7 +111,7 @@
 # select UPPER(column_name) from tanle_name;  will give all column data in capitals.
 #
 
-# part 20  LOWER() string function
+                                                   part 20  LOWER() string function
 
 # Purpose: to convert the text under the column name to lower case
 # select 'Arun Motori'    its output is   Arun Motori
@@ -149,7 +149,13 @@ if some string is not present the  the outout is 0
    
    
    
+                                      part 24  CONCAT()  function
+   MySQL function which falls under string categroy function
+   Purpose: To addd two or more column data together
+   CONCAT(first_column, ' ', last_column)
    
+   WE can also print some conated strings
+   CONCAT('Hello', 'World')   Output:  HelloWorld
    
    
    
