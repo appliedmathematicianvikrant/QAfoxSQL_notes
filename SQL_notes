@@ -169,12 +169,43 @@ we can also compose these functions as the logics permits.
 
 
 
+                                             Part 34  Arithmetic Operators
+                                             
+Addition +
+Subtraction  -
+Multiplication *
+Division /
+modulus %
+
+select 5 + 4;    Output : 9
+
+SELECT Price AS original_Price, Price + 10 AS modified_price from Products;
 
 
-
+                                           part 35   How to install mySQL servers
 
    
-   
+                                            part 36  Creating ,deleting, viewing adn using database
+                                            
+               Databses and schema are intercahngable words
+               
+               first we see what databases are already present in our server 
+               SHOW DATABASES;
+               
+               Now we create a new database 
+               CREATE DATABASE data_base_name;
+               
+               Now if want to delete this database , we use
+               
+               DROP DATABASE data_base_name;
+               
+               Before using any table name , we have to select the database so that server can know
+               
+               USE data_base_name;   noiw this data base is selected.
+                                            
+                                            
+                                  Part 37           
+                                            
   
  
  
