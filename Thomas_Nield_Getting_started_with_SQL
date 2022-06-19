@@ -189,7 +189,58 @@ we can use brackets in order to define the order of operation.
                              
                                   Chapter 6   GROUP BY and ORDER BY
                                   
-                                  
+First, perform the simplest aggregation: count the number of records in a table. Open the SQL editor and get a count of records for station data:
+SELECT COUNT(*) AS record_count FROM station_data;
+
+SELECT year, COUNT(*) AS record_count FROM station_data 
+WHERE tornado = 1
+GROUP BY year;
+
+this will count the data according to the category of year
+
+In GROUP BY we can also include other columns so that if we have more than one value for same first column then we can count it by the second column category.
+
+Alternatively, we can use ordinal positions instead of specifying the columns in the 
+GROUP BY. The ordinal positions correspond to each item’s numeric position in the 
+SELECT statement. So, instead of writing GROUP BY year, month, we could instead 
+make it GROUP BY 1, 2 (which is especially helpful if our SELECT has long column 
+names or expressions, and we do not want to rewrite them in the GROUP BY):
+SELECT year, month, COUNT(*) AS record_count FROM station_data 
+WHERE tornado = 1
+GROUP BY 1, 2
+Note that not all platforms support ordinal positions. With Oracle and SQL Server, 
+for example, you will have to rewrite the entire column name or expression in the 
+GROUP BY.
+
+Aggregate functions
+COUNT(*) function to count records. But there are other aggrega‐ 
+tion functions, including SUM(), MIN(), MAX(), and AVG(). We can use aggregation 
+functions on a specific column to perform some sort of calculation on it.
+
+COUNT function will count not the number of rows in a column but it counts the number of not null values in that column.
+Aggregate functions such as COUNT(), SUM(), AVG(), MIN(), and  MAX() will never include null values in their calculations.  Only non- null values will be considered.
+
+You cannot filter on aggregated fields using WHERE. You have 
+to use the HAVING keyword to accomplish this.
+  
+  So here in place of WHERE we can use HAVING keyword
+SELECT year,
+SUM(precipitation) as total_precipitation 
+FROM station_data
+GROUP BY year
+HAVING total_precipitation > 30
+
+
+If we want a distinct list of station numbers without any duplicates, we can use the 
+DISTINCT keyword:
+SELECT DISTINCT station_number FROM station_data
+
+
+
+
+
+
+
 
 
 
