@@ -157,7 +157,22 @@ if some string is not present the  the outout is 0
    WE can also print some conated strings
    CONCAT('Hello', 'World')   Output:  HelloWorld
    
-   
+                                      part 25 TRIM()  function
+ 
+it falls under string category
+purpose: to remove the leading and trailing spaces in the column data
+SELECT TRIM('  Vikrant    ');
+It will remove the spaces
+
+
+we can also compose these functions as the logics permits.
+
+
+
+
+
+
+
    
    
   
