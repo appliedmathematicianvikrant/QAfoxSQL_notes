@@ -128,6 +128,12 @@ select length(column_name) as our_choose_name from table_name;
 
 we can also use this function with WHERE clause  exampel WHERE length(column_name) = 6
 
+                                  part 22   INSTR() string function  
+purpose: to find the positoin of gievn text in the data of the specified column
+INSTR(column_name, 'u')
 
-
+it can also be used without columns
+select instr('Vikrant', 'a');   output: 5
+it is better to use some alias 
+if some string is not present the  the outout is 0
 
