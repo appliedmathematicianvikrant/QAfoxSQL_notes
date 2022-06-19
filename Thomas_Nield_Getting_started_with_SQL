@@ -172,6 +172,24 @@ SELECT * FROM station_data
 WHERE tornado = true AND hail = true;
 
 
+Null values cannot be determined with an =. You need to use the IS NULL or IS NOT 
+NULL statements to identify null values. So, to get all records with no recorded 
+snow_depth, you could run this query:
+SELECT * FROM station_data 
+WHERE snow_depth IS NULL;
+
+NOTE: Do not confuse nulls with empty text, which is two single quotes 
+with nothing in them (i.e., ''). This also applies to whitespace text 
+(i.e., ' '). These will be treated as values and never will be consid‐ 
+ered null. A null is definitely not the same as 0 either, because 0 is a 
+value, whereas null is an absence of a value.
+
+we can use brackets in order to define the order of operation.
+
+                             
+                                  Chapter 6   GROUP BY and ORDER BY
+                                  
+                                  
 
 
 
