@@ -219,7 +219,48 @@ SELECT Price AS original_Price, Price + 10 AS modified_price from Products;
  are obtained by this clause
  
  
+ WE can alos use alias as follows
  
+ Suppse we have a tablew as follows
+   CREATE TABLE employees(id int, name varchar(15),experience int);
+   
+   Now we can also make another table using some columsn from this table as folows
+   create table emp as
+   select id, name from employees;                This is the method to create new table based on exdisting table.
+   
+   
+   Now we see how to delete a table
+   
+   DROP TABLE table_name;
+                                                              
+                                                              Part 38   Inserting data into tables
+        
+  INSERT INTO table_name 
+                 VALUES(1, 'arun', 12 );      
+   Once we run this mquery this data is inserted into the given table                                                          
+             If we provide only 2 values then it will give an error.
+  Now if we want to insert only these two values and rest we want NULL then  we have to write it as follows
+    INSERT INTO table_name (column_name1, column_name 2)
+                 VALUES( 'arun', 12 ); 
+         Here the column_name is for those  column  i which we want to insert the values                                                    
+                                                             
+                                                             
+                                                             Part 39  Data types
+                                                             
+                                                             
+                                                             
+                                                             
+                                                             
+                                                             
+                                                             
+                                                             
+                                                             
+                                                             
+                                                              
+                                                              
+   
+   
+   
  
  
 
