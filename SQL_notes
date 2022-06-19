@@ -1,0 +1,126 @@
+-- What is a databse
+# it is a place where we can store and the data from.
+# we can enter te data into databse.alter
+# what is databse managemet system:
+#  it is a software which is used to access the data in our databse.
+# example of DBMS from our market MangoDB, Cassandra etc
+# What is Data model?
+# It defines how the data is stored insde a database.
+# DBMS softwares can use nay of the model like
+# 1. Hierarchcical    Parent child type of relationship
+# 2.Network model    one child can have more than one parent
+# 3.Entity relational model  one entity has many atrinutes.
+# 4.relational model  it uses tables 
+
+ 
+#Part 3
+
+#SELECT Command in SQL
+#It is used o retrieve the data from the table.
+#Syntax:  select * from table_name;
+# means all columns from the given table _name
+# Now if we do not want all columns 
+#  Use syntax:
+ # SELECT column1, column2
+# from table_name;
+
+# Part 4
+
+#To retrive unique values from particular column
+# SELECT DISTINCT  column_name
+# FROM table_name;
+#
+# if we  use distinct keyword before more than on columns then 
+# if there are same value in fitst column but corresponding theynhave different va;ues
+# in second column then these same values will be displayed
+
+#part 5
+
+# sql is not case sensitive langauge
+# All clauses can be written in upper or lower or in mixed alphabets.
+
+# part 6
+# importance of semicolon " ; "
+# select * from customers;  we eend the satement with semicolon 
+# is it mandatory . Only in some RDBMS software it is mandatory
+# in Mysql it is optional.
+#  
+# What is the purpose of semicolon?
+#  we want to excutes more than one statment so the semicolon indicates that now we have end of
+# a query.It seperators multiple sql statements.
+
+# part 7     WHERE clause
+# used in select statement
+# we will be able to filter some data based on some condition
+# Example:
+# select * from customers where city='London';
+#  as country name is text we have used single quotes
+#  Numbers are not surrounded by single quotes.
+# Here we have used the '=' operators but we can use other operators also.
+
+#part 8  Relational operators in WHERE clause
+ 
+#  We ecan use the following relational opeartors
+#  =  equal opeator
+#  > greater than opeator
+#  < less than operator
+#  >=  greater than or equal to opeator 
+# <= less than or equal to operator
+# <>  or !=  not equal to
+# Example : select * from orders where price <= 40;
+
+# part 9   logical operators
+# used with WHERE clause conditions
+#                      Withot logical opeators                  with logical operators   AND, OR, NOT
+#         filter the data Only one condition is taken                 more than one condition can be taken to flter the data 
+#                                                                 select * from table_name where condition1 AND condition2..
+#   Example to use NOT 
+# select * from table_name where NOT city='Germany';   NOT do reverse filteration.
+
+# part 10
+
+# part 17 breaking lengthy sql queries  into multiple lines
+
+# When SQL stataemnty is loengthy then reading such statements will become hard 
+# select customerID, customerName, country, city  from customers  where country='France' limit 3;
+# it is not easy to understand this statement
+# write it as
+# select customerID, customerName, country, city  
+# from customers 
+# where country='France'
+# limit 3;
+
+# part 18  Built in functions and there categories
+
+# Different RDBMS softwares 
+# MySQL, Oracle,  different RDBMS softwares has there own list of built in functions
+# we are using built in functions of MySQL
+# just go to google.com and search for MySQL functions
+# Types of builts in functions
+# 1. DAte and Time function
+# 2. string function
+# 3. Aggregate fujnction
+# 4.numeric function
+
+# part 19   UPPER()  string function
+
+#Purpose: To convert the text under the table column to upper case
+# select 'Arun Motori'    its output is Arun Motori
+# But if we apply UPPER function
+# select UPPER('Arun Motori');  output is   ARUN MOTORI
+# select UPPER(column_name) from tanle_name;  will give all column data in capitals.
+#
+
+# part 20  LOWER() string function
+
+# Purpose: to convert the text under the column name to lower case
+# select 'Arun Motori'    its output is   Arun Motori
+# if we apply lower function  
+# select LOWER('Arun Motori');    Its output is   arun motori
+# select LOWER(column_name) AS countryfrom table_name;  will give all column data in lower case.
+# if we do not use alias then the column will be shown as LOWER(column_name)  whiuch does not looks good
+#
+#
+#
+
+
