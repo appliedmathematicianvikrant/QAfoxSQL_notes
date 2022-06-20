@@ -245,59 +245,7 @@ SELECT Price AS original_Price, Price + 10 AS modified_price from Products;
          Here the column_name is for those  column  i which we want to insert the values                                                    
                                                              
                                                              
-                                                             Part 39  Data types
                                                              
-Each and every column of a table need to have a name and a data type
-This is required when we create a table 
-create table employees(id int, name varchar(), experience int)
-
-There are following three major data types in MySQL
-1.String
-2.Numeric
-3.dat and time
-
-For string varchar is most widely used although many types are given 
-int, double, boolean we study for numeric 
-date, time, dataetime, year    is enough for date and time
-
-  int datatype
-  create table xyz(a int);
-  
-  insert into xyz values(9);
-  if we do some thing like this
-  insert into xyz values('Vikrant');
-   It will show error , if we input 1.5 it will not give error but save it as 2rounding it off to 2.
-   
-   drop table xyz;
-   
-   create table xyz(a double);
-   insert into xyz values(9);
-   it will be accepted, if you insert 1.5 it will accept it as it is
-   
-   drop table xyz;
-   
-   create table xyz(a boolean);
-   
-   insert into xyz values(9);  it gets accepted  as non zero is true 
-                                                             
-    insert into xyz values(True);    will save 1    
-      
-    insert into xyz values(False);    will save 0
-      
-    varchar
-    
-    create table xyz (a varchar(15));
-    
-    insert into xyz values('Arun');
-    it will be accepted as size is less than 15
-    if we try to insert data more than 15 length it will show an error.
-    
-    create table xyz(a date);  format is 'yyyy-mm-dd'
-    
-    insert into xyz values('1992-12-03');
-    
-    
-    
     
     
                                                              
