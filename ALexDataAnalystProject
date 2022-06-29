@@ -1,0 +1,41 @@
+use portfolio;
+
+select *
+from dbo.covidvaccinations$;
+
+-- select the data we are going to use
+
+select Location, date, total_cases, new_cases, total_deaths, population
+from dbo.coviddeaths
+order by 1, 2;
+
+-- looking at toral cases vs total deaths
+-- shows the likelihood of dying if you are contract covid in your country
+
+select Location, date, total_cases, total_deaths, (total_deaths/total_cases) * 100 as death_percentage
+from dbo.coviddeaths
+where location like '%india%'
+order by 1, 2;
+
+
+-- looking at total cases vs populations
+-- shows what percentage of population got covid 
+select Location, date, total_cases, population, total_deaths, (total_deaths/population) * 100 as percente_populatiojn
+from dbo.coviddeaths
+where location like '%india%'
+order by 1, 2;
+
+-- looking at countries with highest infection rate compared to population
+select Location,  max(total_cases) as highest_infection_count, population, max((total_cases/population)) * 100 as percent_poplation_infected
+from dbo.coviddeaths
+group by location,population
+order by percent_poplation_infected desc;
+
+
+-- countries with the highest death count per population
+
+select Location,  max(total_deaths)as total_deaths
+from dbo.coviddeaths
+group by location
+order by total_deaths desc;
+
