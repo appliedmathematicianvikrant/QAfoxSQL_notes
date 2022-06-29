@@ -39,3 +39,119 @@ from dbo.coviddeaths
 group by location
 order by total_deaths desc;
 
+
+use portfolio;
+
+
+-- when we run this the output is not in proper manner because total_daeaths column has data type of varchar so we need to convert it into int
+
+select Location,  max(cast(total_deaths as int)) as total_deaths
+from dbo.coviddeaths
+group by location
+order by total_deaths desc;
+
+
+-- now we face the issure that while we group by location when the continent is NULL it make the location itselfa as continnet
+
+select *
+from dbo.coviddeaths
+ where continent is not null;
+
+-- thats why we add where continnet is not null in every query 
+
+select Location,  max(cast(total_deaths as int)) as total_deaths
+from dbo.coviddeaths
+where continent is not null
+group by location
+order by total_deaths desc;
+
+--now we get perfect table
+
+-- lets break the things by continent
+--showing the continets with highest daths per population
+
+select continent,  max(cast(total_deaths as int)) as total_deaths
+from dbo.coviddeaths
+where continent is not null
+group by continent
+order by total_deaths desc;
+
+
+-- global numbers
+select  date, sum(new_cases) as sum_of_new_case, sum(new_deaths) as sum_of_new_deaths -- total_cases, total_deaths, (total_deaths/total_cases) * 100 as death_percentage
+from dbo.coviddeaths
+where continent is not null
+group by date
+order by 1, 2;
+
+
+-- we get again error because the data type of new_deaths is text type so we require casting
+select  date, sum(new_cases) as total_cases, sum(cast(new_deaths as int)) as total_deaths ,sum(cast(new_deaths as int))/sum(new_cases) * 100 as death_percentage
+from dbo.coviddeaths
+where continent is not null
+group by date
+order by 1, 2;
+
+-- now we join the tables
+-- looking at toal population vs vaccinations
+-- now although we have a column name with total_vaccination but we will make another column with sum of each day  
+
+select dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations, sum(convert(int, vac.new_vaccinations)) 
+over (partition by dea.location order by dea.location, dea.date) as rolling_total
+from dbo.coviddeaths  dea
+join dbo.covidvaccinations$  vac 
+on dea.location = vac.location and dea.date = vac.date
+where dea.continent is not null
+order by  2, 3;
+
+
+-- use CTE   in order to use the calculated column in further calculations
+
+with popvsvac (continent, location, date, population, new_vaccinations,rolling_total )
+as 
+(
+
+select dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations, sum(convert(int, vac.new_vaccinations)) 
+over (partition by dea.location order by dea.location, dea.date) as rolling_total
+from dbo.coviddeaths  dea
+join dbo.covidvaccinations$  vac 
+on dea.location = vac.location and dea.date = vac.date
+where dea.continent is not null
+
+)
+select *, (rolling_total/population)* 100 as vaccination_percenatge
+from popvsvac;
+
+
+-- TEMP table 
+
+DROP tAble if exists #percentpopulationvaccinated 
+create table #percentpopulationvaccinated 
+(
+continent nvarchar(255),
+location nvarchar(255),
+Date datetime,
+population numeric,
+new_vaccinations numeric,
+rolling_total numeric
+)
+
+insert into #percentpopulationvaccinated 
+
+
+select dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations, sum(convert(int, vac.new_vaccinations)) 
+over (partition by dea.location order by dea.location, dea.date) as rolling_total
+from dbo.coviddeaths  dea
+join dbo.covidvaccinations$  vac 
+on dea.location = vac.location and dea.date = vac.date
+-- where dea.continent is not null
+
+select *, (rolling_total/population)* 100 as vaccination_percenatge
+from  #percentpopulationvaccinated ;
+
+the above code does not run correctly there was either more number of ci,uns oor incorrect column name
+
+
+
+
+
